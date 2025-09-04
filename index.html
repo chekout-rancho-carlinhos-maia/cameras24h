@@ -1,0 +1,457 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Câmeras Ao Vivo — RANCHO DO MAIA</title>
+
+  <!-- Scripts UTMify -->
+  <script>
+  window.pixelId = "68b8e121e84d242c3171f171";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script><script async="" defer="" src="js/pixel_1.js"></script><script async="" defer="" src="js/pixel.js"></script>
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+  <!-- ======= ESTILOS BASE ======= -->
+  <style>
+    :root{
+      --bg:#0f172a; --accent:#ef4444; --card:#ffffff; --muted:#6b7280;
+      --surface:#f8fafc; --glass: rgba(255,255,255,0.9);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --red-600:#ef4444; --red-500:#f87171; --red-900:#7f1d1d;
+      --slate-200:#e5e7eb; --slate-300:#d1d5db; --slate-400:#9ca3af; --slate-800:#1f2937;
+    }
+    *{box-sizing:border-box}
+    html { scroll-behavior: smooth; }
+    body{margin:0;background:var(--surface);color:#0f172a;min-height:100vh;display:flex;flex-direction:column}
+    header{background:var(--bg);color:white;padding:16px}
+    .wrap{max-width:1100px;margin:0 auto;padding:16px;width:100%}
+    .brand{display:flex;align-items:center;gap:12px;flex-wrap:wrap;text-align:center;justify-content:center}
+    .brand h1{margin:0;font-size:20px;letter-spacing:-0.2px}
+    .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0;justify-content:center}
+    button, .btn{background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;font-weight:bold}
+    button:hover{background:#dc2626}
+    .small{font-size:13px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(1,1fr);gap:16px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.06);display:flex;flex-direction:column;cursor:pointer}
+    .thumb{position:relative;height:180px;overflow:hidden;background:#111}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+    .thumb:hover img{transform:scale(1.03)}
+    .body{padding:12px 14px;flex:1}
+    .title{font-weight:600;margin:0 0 6px 0}
+    .meta{font-size:13px;color:var(--muted);margin:0}
+    footer{padding:24px 16px;text-align:center;color:var(--muted);font-size:13px;margin-top:auto}
+
+    /* Botão VIP */
+    .controls { display:flex; justify-content:center; margin-top:40px; }
+    .vip-btn {
+      background-color:red; color:white; font-size:2rem; padding:20px 60px; border:none;
+      border-radius:10px; cursor:pointer; font-weight:bold; transition:0.3s ease;
+      text-transform:uppercase; box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+    .vip-btn:hover { background-color:darkred; transform:scale(1.05); }
+
+    /* ===== Modal ===== */
+    .modal {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.6); z-index: 50; padding: 20px;
+    }
+    .modal.open { display: flex; }
+    .modal-card {
+      background: #0b1020; color: #fff; width: 100%; max-width: 980px; border-radius: 14px;
+      overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .modal-header {
+      display:flex; align-items:center; justify-content:space-between; padding: 14px 18px; background:#0f172a;
+    }
+    .modal-title { font-weight: 700; font-size: 18px; margin: 0; }
+    .modal-close {
+      background: transparent; border: none; color: #fff; font-size: 22px; cursor: pointer; line-height: 1;
+    }
+    .modal-body { display:block; width:100%; background:#000; }
+    .modal-body img, .modal-body video {
+      width:100%; height:auto; display:block; max-height: 78vh; object-fit: contain; background:#000;
+    }
+    .modal-footer {
+      display:flex; gap:12px; justify-content:flex-end; padding: 12px 18px; background:#0f172a;
+    }
+    .btn-ghost { background: transparent; border: 1px solid #334155; color:#e2e8f0; padding:10px 14px; border-radius: 8px; cursor:pointer; }
+    .btn-primary { background: #ef4444; border: none; color:#fff; padding:10px 14px; border-radius: 8px; cursor:pointer; }
+    .btn-ghost:hover { background:#111827; }
+    .btn-primary:hover { background:#dc2626; }
+
+    /* ====== Planos VIP (estilo próprio, sem Tailwind) ====== */
+    .plan-section { background:#0f1624; color:#fff; margin-top:64px; }
+    .plan-section .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .plan-section .header { text-align:center; padding: 48px 0 16px; }
+    .plan-section .header h1 { margin:0; font-size: 32px; font-weight: 800; }
+    .plan-section .header p { color: var(--slate-300); margin-top: 8px; }
+
+    .plan-grid {
+      display:grid; grid-template-columns: 1fr; gap: 24px;
+      padding: 0 0 24px;
+    }
+    @media (min-width: 768px) {
+      .plan-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .plan-card {
+      background:#000; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 24px; text-align:center; border: 1px solid rgba(255,255,255,0.06);
+    }
+    .plan-card h2 { font-size: 20px; margin: 6px 0 12px; font-weight: 700; }
+    .plan-card .price { font-size: 32px; font-weight: 800; margin: 8px 0; color: var(--red-600); }
+    .plan-card .price--light { color: #fff; }
+    .plan-card .badge {
+      display:inline-block; background: var(--red-600); color:#fff; font-size: 12px;
+      padding: 6px 10px; border-radius: 999px; font-weight: 700;
+    }
+    .plan-card .sub { color: #fda4af; font-weight: 800; font-size: 12px; margin: 4px 0 10px; }
+    .plan-card ul { list-style:none; padding:0; margin:16px 0 0; color: var(--slate-200); font-size: 14px; }
+    .plan-card ul li { margin: 8px 0; }
+    .plan-card .cta {
+      width:100%; background: var(--red-600); color:#fff; border:none; border-radius:10px;
+      font-weight:800; padding: 12px 16px; margin-top: 16px; cursor:pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .plan-card .cta:hover { background:#dc2626; transform: translateY(-1px); }
+
+    .plan-card.featured {
+      background: var(--red-900);
+      border: 2px solid var(--red-600);
+    }
+
+    .plan-section .footer-note {
+      text-align:center; color: #9ca3af; font-size: 13px; padding: 20px 0 28px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <img src="images/rancho_do_maia.jpg" alt="Rancho do Maia" style="width:200px;height:auto;max-width:20vw;">
+    <div>
+      <h1>Rancho do Maia</h1>
+      <p style="font-size:14px;color:#d1d5db">Câmeras Ao Vivo 24 Horas</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" role="main">
+  <!-- Botão Planos VIP -->
+  <section class="controls" aria-label="botão planos">
+    <a href="#planos">
+      <button class="vip-btn" type="button">APENAS 4 VAGAS DISPONIVEL</button>
+    </a>
+  </section>
+
+  <!-- Grid de câmeras (renderizado via JS) -->
+  <section id="grid" class="grid" aria-live="polite"><article class="card" tabindex="0" role="button" aria-label="Abrir Casa Da Arvore">
+        <div class="thumb">
+          <img src="images/captura-de-tela-2024-12-11-as-23.05.46.jpg" alt="Casa Da Arvore" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Casa Da Arvore</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Quarto Dragão">
+        <div class="thumb">
+          <img src="images/camera_quarto.jpg" alt="Quarto Dragão" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Quarto Dragão</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Quarto Cogumelo">
+        <div class="thumb">
+          <img src="images/cam.jpeg" alt="Quarto Cogumelo" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Quarto Cogumelo</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Casa anões">
+        <div class="thumb">
+          <img src="images/casa_anao.jpg" alt="Casa anões" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Casa anões</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Casa XEPA">
+        <div class="thumb">
+          <img src="images/casaxepa.jpg" alt="Casa XEPA" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Casa XEPA</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Quarto Arco-iris">
+        <div class="thumb">
+          <img src="images/cam1.jpeg" alt="Quarto Arco-iris" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Quarto Arco-iris</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Prisão">
+        <div class="thumb">
+          <img src="images/prisao.jpg" alt="Prisão" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Prisão</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir quarto sushi">
+        <div class="thumb">
+          <img src="images/cam2.jpeg" alt="quarto sushi" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">quarto sushi</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Casa Branca">
+        <div class="thumb">
+          <img src="images/casabranca.jpg" alt="Casa Branca" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Casa Branca</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Cameras Aleatorias">
+        <div class="thumb">
+          <img src="images/cam3.jpeg" alt="Cameras Aleatorias" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Cameras Aleatorias</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Cameras Aleatorias">
+        <div class="thumb">
+          <img src="images/cam4.jpeg" alt="Cameras Aleatorias" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Cameras Aleatorias</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Cameras Aleatorias">
+        <div class="thumb">
+          <img src="images/cam5.jpeg" alt="Cameras Aleatorias" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Cameras Aleatorias</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Cameras Aleatorias">
+        <div class="thumb">
+          <img src="images/cam8.jpeg" alt="Cameras Aleatorias" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Cameras Aleatorias</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Cameras Aleatorias">
+        <div class="thumb">
+          <img src="images/cam6.jpeg" alt="Cameras Aleatorias" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Cameras Aleatorias</div>
+          <div class="meta"></div>
+        </div>
+      </article><article class="card" tabindex="0" role="button" aria-label="Abrir Cameras Aleatorias">
+        <div class="thumb">
+          <img src="images/cam7.jpeg" alt="Cameras Aleatorias" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Cameras Aleatorias</div>
+          <div class="meta"></div>
+        </div>
+      </article></section>
+</main>
+
+<footer>Acesso a essas e muitas outras câmeras EXCLUSIVAS do Rancho</footer>
+
+<!-- ============ MODAL ============ -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2 id="modal-title" class="modal-title">Título da Câmera</h2>
+      <button class="modal-close" type="button" aria-label="Fechar">×</button>
+    </div>
+    <div class="modal-body">
+      <img id="modal-image" src="" alt="">
+      <video id="modal-video" controls="" playsinline="" style="display:none;"></video>
+    </div>
+    <div class="modal-footer">
+      <a href="#planos"><button class="btn-primary" type="button">Assinar VIP</button></a>
+      <button class="btn-ghost modal-close" type="button">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SCRIPTS ============================== -->
+<script>
+  // Sem pixels e sem YouTube.
+  const BASE_IMG = 'https://midias.lat/wp/wp-content/uploads/2025/09/';
+
+  const sampleCameras = [
+    { id: 1,  title: 'Casa Da Arvore',     location: '', thumb: BASE_IMG + 'captura-de-tela-2024-12-11-as-23.05.46.jpg', stream: '' },
+    { id: 2,  title: 'Quarto Dragão',      location: '', thumb: BASE_IMG + 'camera_quarto.jpg',                           stream: '' },
+    { id: 3,  title: 'Quarto Cogumelo',    location: '', thumb: BASE_IMG + 'cam.jpeg',                                    stream: '' },
+    { id: 4,  title: 'Casa anões',         location: '', thumb: BASE_IMG + 'casa_anao.jpg',                               stream: '' },
+
+    { id: 5,  title: 'Casa XEPA',          location: '', thumb: BASE_IMG + 'casaxepa.jpg',                                stream: '' },
+    { id: 6,  title: 'Quarto Arco-iris',   location: '', thumb: BASE_IMG + 'cam1.jpeg',                                   stream: '' },
+    { id: 7,  title: 'Prisão',             location: '', thumb: BASE_IMG + 'prisao.jpg',                                  stream: '' },
+    { id: 8,  title: 'quarto sushi',       location: '', thumb: BASE_IMG + 'cam2.jpeg',                                   stream: '' },
+    { id: 9,  title: 'Casa Branca',        location: '', thumb: BASE_IMG + 'casabranca.jpg',                              stream: '' },
+    { id: 10, title: 'Cameras Aleatorias', location: '', thumb: BASE_IMG + 'cam3.jpeg',                                   stream: '' },
+    { id: 11, title: 'Cameras Aleatorias', location: '', thumb: BASE_IMG + 'cam4.jpeg',                                   stream: '' },
+    { id: 12, title: 'Cameras Aleatorias', location: '', thumb: BASE_IMG + 'cam5.jpeg',                                   stream: '' },
+    { id: 13, title: 'Cameras Aleatorias', location: '', thumb: BASE_IMG + 'cam8.jpeg',                                   stream: '' },
+    { id: 14, title: 'Cameras Aleatorias', location: '', thumb: BASE_IMG + 'cam6.jpeg',                                   stream: '' },
+    { id: 15, title: 'Cameras Aleatorias', location: '', thumb: BASE_IMG + 'cam7.jpeg',                                   stream: '' }
+  ];
+
+  const grid = document.getElementById('grid');
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, m => ({
+      '&':'&','<':'<','>':'>','"':'"',"'":'''
+    })[m]);
+  }
+
+  function render() {
+    grid.innerHTML = '';
+    for (const cam of sampleCameras) {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.setAttribute('tabindex','0');
+      card.setAttribute('role','button');
+      card.setAttribute('aria-label', `Abrir ${cam.title}`);
+      card.innerHTML = `
+        <div class="thumb">
+          <img src="${cam.thumb}" alt="${escapeHtml(cam.title)}" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="title">${escapeHtml(cam.title)}</div>
+          <div class="meta">${cam.location ? escapeHtml(cam.location) : ''}</div>
+        </div>
+      `;
+      card.addEventListener('click', () => openModal(cam));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(cam); }
+      });
+      grid.appendChild(card);
+    }
+  }
+
+  // Modal
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalImg = document.getElementById('modal-image');
+  const modalVideo = document.getElementById('modal-video');
+  const closeButtons = document.querySelectorAll('.modal-close');
+
+  function openModal(cam){
+    modal.classList.add('open');
+    modalTitle.textContent = cam.title;
+
+    // padrão: imagem grande
+    modalImg.src = cam.thumb;
+    modalImg.alt = cam.title;
+    modalImg.style.display = 'block';
+
+    // se quiser usar vídeo próprio no futuro:
+    modalVideo.removeAttribute('src');
+    modalVideo.style.display = 'none';
+  }
+
+  function closeModal(){
+    modal.classList.remove('open');
+    if (!modalVideo.paused) { try { modalVideo.pause(); } catch(e){} }
+  }
+
+  closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+  render();
+</script>
+
+<!-- ================= PLANOS VIP (com estilos próprios) ================= -->
+<section id="planos" class="plan-section">
+  <div class="container">
+    <div class="header">
+      <h1>PLANOS VIP</h1>
+      <p>Acesso TOTAL às Melhores Câmeras do Rancho</p>
+    </div>
+
+    <div class="plan-grid">
+      <!-- Plano Mensal -->
+      <div class="plan-card">
+        <span class="badge" aria-hidden="true">PADRÃO</span>
+        <h2>Plano Básico</h2>
+        <p class="price">R$ 19,90</p>
+        <ul>
+          <li>✔️ Acesso a 4 Câmeras 24hrs</li>
+          <li>✔️ Você escolhe 4 câmeras</li>
+          <li>✔️ Câmeras em FULLHD/4K</li>
+          <li>✔️ Mobile + Desktop</li>
+        </ul>
+        <a href="https://pay.pagoufacil.online/checkout/c1af3498-69aa-4b8b-b555-d7c41bebec37" target="_blank" rel="noopener">
+          <button class="cta" type="button">ASSINAR AGORA</button>
+        </a>
+      </div>
+
+      <!-- Plano Trimestral (destaque) -->
+      <div class="plan-card featured">
+        <span class="badge">MAIS ESCOLHIDO</span>
+        <h2>Plano Popular</h2>
+        <p class="sub">52% OFF - MAIS POPULAR</p>
+        <p class="price price--light">R$ 29,90</p>
+        <ul>
+          <li>✔️ Tudo do plano básico</li>
+          <li>✔️ Acesso a 10 câmeras 24hrs de sua escolha</li>
+          <li>✔️ Suporte prioritário</li>
+          <li>✔️ Câmeras em FULLHD/4K</li>
+        </ul>
+        <a href="https://pay.pagoufacil.online/checkout/9b94fe16-72b7-4429-a09e-eabdc5fc18ea" target="_blank" rel="noopener">
+          <button class="cta" type="button">QUERO ESTE PLANO</button>
+        </a>
+      </div>
+
+      <!-- Plano Anual -->
+      <div class="plan-card">
+        <span class="badge" aria-hidden="true">MELHOR VALOR</span>
+        <h2>Plano VIP</h2>
+        <p class="sub">79% OFF - MELHOR VALOR</p>
+        <p class="price">R$ 44,90</p>
+        <ul>
+          <li>✔️ TUDO dos outros planos</li>
+          <li>✔️ Acesso a todas as câmeras 24hrs</li>
+          <li>✔️ Câmeras exclusivas</li>
+          <li>✔️ FULLHD/4K</li>
+          <li>✔️ Acesso imediato</li>
+          <li>✔️ Suporte 24/7</li>
+        </ul>
+        <a href="https://pay.finalizesuacompraprotegida.shop/checkout/0b1be06d-296d-45be-ba77-7bf1b7a4e314" target="_blank" rel="noopener">
+          <button class="cta" type="button">QUERO ESTE PLANO</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Pagamento 100% seguro · Cancele quando quiser · Garantia de 7 dias
+    </div>
+  </div>
+</section>
+
+
+
+
+</body></html>
